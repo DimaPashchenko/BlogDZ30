@@ -8,9 +8,13 @@ require 'pry'
 set :database, {adapter: "sqlite3", database: "blog.db"}
 
 class Post < ActiveRecord::Base
+	validates :author, presence: true
+	validates :content, presence: true	
 end
 
 class Comment < ActiveRecord::Base
+	validates :author, presence: true
+	validates :content, presence: true	
 end
 
 get '/' do
@@ -25,6 +29,10 @@ end
 
 post '/new' do
 	@c = Post.new(params[:post])
-	@c.save
-	erb :new
+	if @c.save
+		erb "<h2>Thanks for your post</h2>"
+	else
+		@error = @c.errors.full_messages.first
+		erb :new
+	end
 end
