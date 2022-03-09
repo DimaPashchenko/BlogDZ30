@@ -1,0 +1,14 @@
+<p>
+	<form action ="/comments/<%= :id %>" method="POST">
+		<div class="mb-3">
+			<textarea name="comment[author]" class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Type your name" ></textarea>
+		<br />
+		</div>
+
+		<div class="mb-3">
+		    <textarea name="comment[content]" class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Type comment text here"></textarea>
+			<br />
+		</div>
+		<button type="submit" class="btn btn-primary">Add comment</button>		
+	</form>
+</p>

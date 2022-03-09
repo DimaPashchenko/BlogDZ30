@@ -7,12 +7,14 @@
 		<br/>
 		<br/>
 		<p>
-		Author name: <%= post.author %>
+		<span style="font-size: 75%; color: #999">Added at <%= post.author %></span>
+		<!-- Author name: <%= post.author %> -->
 		</p>
-		Added at <%= post.created_at %>
+		<span style="font-size: 75%; color: #999">Added at <%= post.created_at %></span>
+		<!-- Added at <%= post.created_at %> -->
 		<br/>
 		<br/>
-		<a href="/details/<%= post.id %>">Comments</a>
+		<a href="/comments/<%= post.id %>">Comments</a>
 	</p>
 	<hr/>
 <% end %>

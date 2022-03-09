@@ -36,3 +36,18 @@ post '/new' do
 		erb :new
 	end
 end
+
+get '/comments/:id' do
+	@a = Comment.new
+	erb  :comments
+end
+
+post '/comments/:id' do
+  	@a = Comment.new(params[:comment])
+ 	if @a.save
+		erb "<h2>Thanks for your comments</h2>"
+	else
+		@error = @a.errors.full_messages.first
+		erb :comments
+	end
+end
