@@ -38,16 +38,18 @@ post '/new' do
 end
 
 get '/comments/:id' do
-	@a = Comment.new
+	@post = Post.find(params[:id])
+	@comments = Comment.order(:id)
 	erb  :comments
 end
 
 post '/comments/:id' do
   	@a = Comment.new(params[:comment])
+  	
  	if @a.save
-		erb "<h2>Thanks for your comments</h2>"
-	else
-		@error = @a.errors.full_messages.first
-		erb :comments
-	end
+	 	redirect back
+	 else
+	 	@error = @a.errors.full_messages.first
+		redirect back
+	 end
 end

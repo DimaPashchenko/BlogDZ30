@@ -1,3 +1,28 @@
+<h4>Post details:</h4>
+<br/>
+<p>
+	<%= @post.content %>
+	<br/>
+	<br/>
+	<p>
+	Author: <%= @post.author %>
+    </p>
+	Added at <%= @post.created_at %>
+</p>
+<br/>
+
+<h2>Comments:</h2>
+<% @comments.each do |comment|%>
+	<p>
+		<%= comment.content %>
+		<br/>
+		<p>
+		Author: <%= comment.author %>
+	    </p>
+		Added at: <%= comment.created_at %>
+	</p>
+<% end %>
+
 <p>
 	<form action ="/comments/<%= :id %>" method="POST">
 		<div class="mb-3">
